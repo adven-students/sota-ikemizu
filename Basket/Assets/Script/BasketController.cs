@@ -5,11 +5,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
     public AudioClip appleSE;
     public AudioClip bombSE;
+    GameObject director;
     AudioSource aud;
     void Start()
     {
         Application.targetFrameRate = 60;
         this.aud = GetComponent<AudioSource>();
+        this.director =GameObject.Find("GameDirector");
     }
 
     void OnTriggerEnter(Collider other)
@@ -17,10 +19,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
         if (other.gameObject.tag == "Apple")
         {
             this.aud.PlayOneShot(this.appleSE);
+            this.director.GetComponent<GameDirector>().GetApple();
         }
         else
         {
             this.aud.PlayOneShot(this.bombSE);
+            this.director.GetComponent<GameDirector>().GetBomb();
         }
         Destroy(other.gameObject);
     }

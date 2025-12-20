@@ -1,13 +1,13 @@
 using TMPro;
 using UnityEditor.Build.Content;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameDirector : MonoBehaviour
 {
     GameObject timerText;
     GameObject pointText;
     float time=60.0f;
-    int point=0;
+    public static int point=0;
     public void GetApple()
     {
         this.point+=100;
@@ -29,5 +29,9 @@ public class GameDirector : MonoBehaviour
         this.time-=Time.deltaTime;
         this.timerText.GetComponent<TextMeshProUGUI>().text=this.time.ToString("F1");
         this.pointText.GetComponent<TextMeshProUGUI>().text=this.point.ToString()+" point";
+        if(time<=0)
+        {
+            SceneManager.LoadScene("Result");
+        }
     }
 }
