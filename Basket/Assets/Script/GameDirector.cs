@@ -10,11 +10,11 @@ public class GameDirector : MonoBehaviour
     public static int point=0;
     public void GetApple()
     {
-        this.point+=100;
+        point+=100;
     }
     public void GetBomb()
     {
-        this.point/=2;
+        point/=2;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,10 +28,14 @@ public class GameDirector : MonoBehaviour
     {
         this.time-=Time.deltaTime;
         this.timerText.GetComponent<TextMeshProUGUI>().text=this.time.ToString("F1");
-        this.pointText.GetComponent<TextMeshProUGUI>().text=this.point.ToString()+" point";
+        this.pointText.GetComponent<TextMeshProUGUI>().text=point.ToString()+" point";
         if(time<=0)
         {
             SceneManager.LoadScene("Result");
         }
+    }
+    public int Geterpoint()
+    {
+        return point;
     }
 }

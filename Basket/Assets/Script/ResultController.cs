@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ResultController : MonoBehaviour
 {
-    int result = GameDirector.point;
+    public static GameDirector instance = new GameDirector();
+    int result = instance.Geterpoint();
     GameObject resultText;
     TextMeshProUGUI UItext;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,5 +19,7 @@ public class ResultController : MonoBehaviour
     void Update()
     {
         UItext.text=this.result.ToString("F1");
+        Debug.Log(instance);
+        Debug.Log(instance.Geterpoint());
     }
 }
