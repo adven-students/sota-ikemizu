@@ -1,65 +1,76 @@
-        const tasizan = document.getElementById("tasu");
+const tasizan = document.getElementById("tasu");
         const hikizan = document.getElementById("hiku");
         const kakezan = document.getElementById("kakeru");
         const warizan = document.getElementById("waru");
         const btn=document.getElementById("tekiyou");
+        const num=document.querySelectorAll(".num");
+        const clear=document.getElementById("clear");
         let frag=0;
+        let a=0;
+        let b=0;
         tasizan.onclick = () =>
         {
             let answer=document.getElementById("answer");
-            let ez=document.getElementById("ez");
-            ez.textContent="+";
-            console.log(ez.textContent);
             frag=0;
+            a=answer.textContent;
+            answer.textContent="";
         }
         hikizan.onclick = () =>
         {
             let answer=document.getElementById("answer");
-            let ez=document.getElementById("ez");
-            ez.textContent="-";
-            console.log(ez.textContent);
             frag=1;
+            a=answer.textContent;
+            answer.textContent="";
         }
         kakezan.onclick = () =>
         {
             let answer=document.getElementById("answer");
-            let ez=document.getElementById("ez");
-            ez.textContent="*";
-            console.log(ez.textContent);
             frag=2;
+            a=answer.textContent;
+            answer.textContent="";
         }
         warizan.onclick = () =>
         {
             let answer=document.getElementById("answer");
-            let ez=document.getElementById("ez");
-            ez.textContent="÷";
-            console.log(ez.textContent);
             frag=3;
+            a=answer.textContent;
+            answer.textContent="";
         }
-        btn.onclick = () =>
+        tekiyou.onclick = () =>
         {
             let answer=document.getElementById("answer");
-            const a = document.getElementById("a");
-            const b = document.getElementById("b");
             if (frag==0) {
-                answer.textContent= Number(a.value)+Number(b.value);
+                b=answer.textContent;
                 console.log(a);
                 console.log(b);
+                answer.textContent=Number(a)+Number(b);
             }
             if (frag==1) {
-                answer.textContent= Number(a.value)-Number(b.value);
-                console.log(a);
-                console.log(b);
+                b=answer.textContent;
+                answer.textContent=Number(a)-Number(b);
             }
             if (frag==2) {
-                answer.textContent= Number(a.value)*Number(b.value);
-                console.log(a);
-                console.log(b);
+                b=answer.textContent;
+                answer.textContent=Number(a)*Number(b);
             }
             if (frag==3) {
-                answer.textContent= Number(a.value)/Number(b.value);
-                console.log(a);
-                console.log(b);
+                b=answer.textContent;
+                answer.textContent=Number(a)/Number(b);
             }
         }
-        
+        // ボタンが押されたときに数値を表示する処理
+        const answerElement = document.getElementById('answer');
+        const numButtons = document.querySelectorAll('.num');
+
+        numButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const value = button.value;
+                answerElement.textContent += value;
+            });
+        });
+        clear.onclick = () =>
+        {
+            answer.textContent="";
+            a=0;
+            b=0;
+        }

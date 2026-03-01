@@ -4,14 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <link rel="stylesheet" href="hajime.css">
+    <link rel="stylesheet" href="hajime.css">
 </head>
 <body>
-    <input type="text" id="a"> <input type="button" id="tasu" value="足し算"><input type="button" id="hiku" value="引き算"><input type="button" id="kakeru" value="掛け算"><input type="button" id="waru" value="割算">
-    <p id="ez">+</p> 
-    <input type="text" id="b">
-    <input type="button" id="tekiyou" value="適用">
-    <h1 id="answer">answer</h1>
+    <h1 id="answer"></h1>
+    <table>
+        <tr>
+            <td><input type="button" class="num" value="7"></td>
+            <td><input type="button" class="num" value="8"></td>
+            <td><input type="button" class="num" value="9"></td>
+            <td><input type="button" class="nu" id="tasu" value="+"></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="num" value="4"></td>
+            <td><input type="button" class="num" value="5"></td>
+            <td><input type="button" class="num" value="6"></td>
+            <td><input type="button" class="nu" id="hiku" value="−"></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="num" value="1"></td>
+            <td><input type="button" class="num" value="2"></td>
+            <td><input type="button" class="num" value="3"></td>
+            <td><input type="button" class="nu" id="kakeru" value="×"></td>
+        </tr>
+        <tr>
+            <td><input type="button" class="nu" id="clear" value="C"></td>
+            <td><input type="button" class="num" value="0"></td>
+            <td><input type="button" class="nu" id="dot" value="."></td>
+            <td><input type="button" class="nu" id="waru" value="÷"></td>
+        </tr>
+    </table>
+    
+    
+    
+    
+    <input type="button" id="tekiyou" value="=">
     <script src="dentaku.js"></script>
 </body>
 </html>
